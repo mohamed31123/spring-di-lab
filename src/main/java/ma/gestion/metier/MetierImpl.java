@@ -12,6 +12,10 @@ public class MetierImpl implements IMetier {
     @Qualifier("dao2")  // Spécifie quelle implémentation de IDao utiliser
     private IDao dao;
 
+    private void init() {
+        System.out.println("[TRACE] DAO injecté = " + dao.getClass().getSimpleName());
+    }
+
     @Override
     public double calcul() {
         return dao.getValue() * 2;
@@ -20,4 +24,6 @@ public class MetierImpl implements IMetier {
     public void setDao(IDao dao) {
         this.dao = dao;
     }
+
+
 }
